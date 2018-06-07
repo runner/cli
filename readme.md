@@ -15,6 +15,58 @@ Task runner CLI
 npm install @runner/cli
 ```
 
+## Usage ##
+
+Runner can be started by using `npm` or `npx` commands.
+
+Run with the npm:
+
+```bash
+npm run build
+```
+
+When `build` is the name of the npm script which contains a `runner` command.
+
+Run with the npx:
+
+```bash
+npx runner
+```
+
+The `runner` command format:
+
+```bash
+runner [options] [<task>]
+```
+
+Available options:
+
+ Option       | Description
+--------------|-------------
+ -c, --config | Configuration file is a script which contains tasks definitions. Default value - runner.js.
+ -s, --serial | Run all given tasks sequentially (instead of in parallel).
+
+These two commands are identical:
+
+```bash
+npx runner
+npx runner --config runner.js
+```
+
+To run a `webpack:build` task in a custom configuration file:
+
+```bash
+npx runner -c tasks/develop.js webpack:build 
+```
+
+Without the task name starts the default task:
+
+```bash
+npx runner -c tasks/develop.js 
+```
+
+More information about tasks manipulation is available in the [@runner/core](https://www.npmjs.com/package/@runner/core) package.
+
 
 ## Contribution ##
 

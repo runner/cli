@@ -10,6 +10,7 @@
 var path    = require('path'),
     program = require('commander'),
     runner  = require('@runner/core'),
+    log     = require('@runner/logger'),
     pkgData = require('../package.json');
 
 
@@ -33,7 +34,7 @@ program.parse(process.argv);
 program.config = path.normalize(path.join(process.cwd(), program.config));
 
 // load config
-runner.log.info('config file: ' + runner.log.colors.green(program.config));
+log.info('config file: ' + log.colors.green(program.config));
 require(program.config);
 
 // run
@@ -43,7 +44,7 @@ if ( program.args.length === 1 ) {
 } else {
     if ( program.args.length > 1 ) {
         // list of tasks
-        runner.log.info('run mode: ' + (program.serial ? 'serial' : 'parallel'));
+        log.info('run mode: ' + (program.serial ? 'serial' : 'parallel'));
 
         if ( program.serial ) {
             runner.task('default', runner.serial.apply(runner, program.args));

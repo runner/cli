@@ -19,15 +19,15 @@ npm install @runner/cli
 
 Runner can be started by using `npm` or `npx` commands.
 
-Run with the npm:
+Run with npm:
 
 ```bash
 npm run build
 ```
 
-When `build` is the name of the npm script which contains a `runner` command.
+where `build` is an npm script in the `package.json` which contains a `runner` command.
 
-Run with the npx:
+Run with npx:
 
 ```bash
 npx runner
@@ -53,7 +53,7 @@ npx runner
 npx runner --config runner.js
 ```
 
-To run a `webpack:build` task in a custom configuration file:
+To run a `webpack:build` task from a custom configuration file:
 
 ```bash
 npx runner -c tasks/develop.js webpack:build 

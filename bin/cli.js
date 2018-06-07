@@ -22,10 +22,16 @@ program
     .option('-s, --serial', 'run all given tasks sequentially (instead of in parallel)');
 
 program.on('--help', function () {
-    console.log('\n  Examples:');
-    console.log('');
-    console.log('    $ @TODO');
-    console.log('');
+    console.log([
+        '',
+        '  Examples:',
+        '',
+        '    runner -c tasks/develop.js      # run default task from custom config',
+        '    runner webpack:build            # run build task from default config runner.js',
+        '    runner build watch serve        # run 3 given tasks in parallel',
+        '    runner -s sass:build pug:build  # run all tasks in series',
+        ''
+    ].join('\n'));
 });
 
 program.parse(process.argv);
